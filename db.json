@@ -1,6 +1,6 @@
 {
    "quizes":[{"created": "2020-09-09 09:26:39",
-   "description": "Description",
+   "description": "Here is an interesting quiz on computer programming",
    "id": 29,
    "modified": "2020-09-09 09:26:39",
    "questions_answers": [
@@ -10,28 +10,28 @@
          {
            "id": 122,
            "is_true": false,
-           "text": "question 1 answer 1 false"
+           "text": "If (x < 0) a = b * 2; y = x; z = a - y;"
          },
          {
            "id": 123,
            "is_true": false,
-           "text": "question 1 answer 2 false"
+           "text": "{ if (x < 0) a = b * 2; y = x; z = a - y; }"
          },
          {
            "id": 124,
            "is_true": true,
-           "text": "question 1 answer 3 true"
+           "text": "If (x < 0) { a = b * 2; y = x; z = a - y; }"
          },
          {
            "id": 125,
            "is_true": false,
-           "text": "question 1 answer 4 false"
+           "text": "If{ (x < 0) a = b * 2; y = x; z = a - y ; }"
          }
        ],
-       "feedback_false": "question 1 false feedback",
-       "feedback_true": "question 1 true feedback",
+       "feedback_false": "The correct answer is the last statement: if (x < 0) { a = b * 2; y = x; z = a - y; }. This is because it correctly uses the if statement syntax, with the condition in parentheses followed by the code block enclosed in curly braces. The other options either have incorrect syntax or do not include the necessary curly braces to enclose all three instructions.",
+       "feedback_true": "Correct",
        "id": 53,
-       "text": "question 1 text"
+       "text": "Of the following, if statements, which one correctly executes three instructions if the condition is true?"
      },
      {
        "answer_id": null,
@@ -39,18 +39,18 @@
          {
            "id": 126,
            "is_true": true,
-           "text": "question 2 answer 1 true"
+           "text": "Debugging"
          },
          {
            "id": 127,
            "is_true": false,
-           "text": "question 2 answer 2 false"
+           "text": "Compiling"
          }
        ],
-       "feedback_false": "question 2 false feedback",
-       "feedback_true": "question 2 true feedback",
+       "feedback_false": "Debugging is the process of finding errors and fixing them within a program. It involves identifying and resolving issues such as logical errors, syntax errors, or runtime errors that prevent the program from working correctly. This process often requires the use of debugging tools and techniques, such as setting breakpoints, stepping through code, and analyzing variables, in order to locate and rectify the errors.",
+       "feedback_true": "Correct",
        "id": 54,
-       "text": "question 2 text"
+       "text": "_______ is the process of finding errors and fixing them within a program."
      },
      {
        "answer_id": null,
@@ -58,28 +58,28 @@
          {
            "id": 128,
            "is_true": false,
-           "text": "question 3 answer 1 false"
+           "text": "If-Else"
          },
          {
            "id": 129,
            "is_true": true,
-           "text": "question 3 answer 2 true"
+           "text": "For"
          },
          {
            "id": 130,
            "is_true": false,
-           "text": "question 3 answer 3 false"
+           "text": "While"
          }
        ],
-       "feedback_false": "question 3 false feedback",
-       "feedback_true": "question 3 true feedback",
+       "feedback_false": "The correct answer is 'For' because the 'For' loop is specifically designed to execute a section of code a certain number of times. In this case, Sal needs to execute the code ten times, and the 'For' loop allows for easily specifying the number of iterations. The other selection structures, such as 'If-Else', 'While', and 'If', do not have a built-in mechanism for repeating a section of code multiple times.",
+       "feedback_true": "Correct",
        "id": 55,
-       "text": "question 3 text"
+       "text": "Sal needs to execute a section of code ten times within a program. Compare the selection structures below and select which one meets the needs identified."
      }
    ],
    "score": null,
-   "title": "quiz title",
-   "url": "https://www.youtube.com/watch?v=e6EGQFJLl04"
+   "title": "Computer Programming",
+   "url": "https://www.youtube.com/watch?v=zOjov-2OZ0E&pp=ygULcHJvZ3JhbW1pbmc%3D"
  }] 
   }
   
