@@ -4,11 +4,48 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { createQuiz } from "../Endpoints/api";
 
 const CreateNew = ({ show, handleClose }) => {
   const [questions, setQuestions] = useState([
     { text: "", answers: [{ text: "", isCorrect: false }] },
   ]);
+  const [title, setTitle] = useState("");
+  const [score, setScore] = useState("");
+  const [url, setUrl] = useState("");
+  const [description, setDescription] = useState("");
+
+  const queryClient = useQueryClient();
+
+  const { mutateAsync, isLoading } = useMutation(createQuiz, {
+    onMutate: () => {
+      queryClient.invalidateQueries("quizzes");
+    },
+  });
+
+  const handleSubmit = async () => {
+    const quizData = {
+      title: title,
+      score: parseInt(score),
+      url: url,
+      description: description,
+      questions_answers: questions.map((question) => ({
+        text: question.text,
+        answers: question.answers.map((answer) => ({
+          text: answer.text,
+          is_true: answer.isCorrect,
+        })),
+      })),
+    };
+
+    try {
+      await mutateAsync(quizData);
+      handleClose();
+    } catch (error) {
+      console.error("Error creating quiz:", error);
+    }
+  };
 
   const addQuestion = () => {
     setQuestions([
@@ -139,20 +176,41 @@ const CreateNew = ({ show, handleClose }) => {
           <Row className="mb-3">
             <Form.Group className="mb-3" as={Col} md={4} controlId="title">
               <Form.Label>Title</Form.Label>
-              <Form.Control type="text" placeholder="Quiz title" />
+              <Form.Control
+                type="text"
+                placeholder="Quiz title"
+                value={title}
+                onChange={(e) => setTitle(e.target.value)}
+              />
             </Form.Group>
             <Form.Group className="mb-3" as={Col} md={4} controlId="score">
               <Form.Label>Score</Form.Label>
-              <Form.Control type="text" placeholder="Quiz score" />
+              <Form.Control
+                type="number"
+                placeholder="Quiz score"
+                value={score}
+                onChange={(e) => setScore(e.target.value)}
+              />
             </Form.Group>
             <Form.Group as={Col} md={4} controlId="url">
               <Form.Label>URL</Form.Label>
-              <Form.Control type="text" placeholder="Video url" />
+              <Form.Control
+                type="text"
+                placeholder="Video URL"
+                value={url}
+                onChange={(e) => setUrl(e.target.value)}
+              />
             </Form.Group>
           </Row>
           <Row className="mb-4">
             <Form.Group as={Col} controlId="description">
-              <Form.Control as="textarea" rows={3} />
+              <Form.Control
+                as="textarea"
+                rows={3}
+                placeholder="Description"
+                value={description}
+                onChange={(e) => setDescription(e.target.value)}
+              />
             </Form.Group>
           </Row>
 
@@ -171,8 +229,13 @@ const CreateNew = ({ show, handleClose }) => {
         <Button variant="outline-dark" onClick={handleClose}>
           Cancel
         </Button>
-        <Button type="submit" variant="dark" onClick={handleClose}>
-          Save
+        <Button
+          type="submit"
+          variant="dark"
+          onClick={handleSubmit}
+          disabled={isLoading}
+        >
+          {isLoading ? "Creating..." : "Save"}
         </Button>
       </Modal.Footer>
     </Modal>

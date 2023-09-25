@@ -1,85 +1,109 @@
 {
-   "quizes":[{"created": "2020-09-09 09:26:39",
-   "description": "Here is an interesting quiz on computer programming",
-   "id": 29,
-   "modified": "2020-09-09 09:26:39",
-   "questions_answers": [
-     {
-       "answer_id": null,
-       "answers": [
-         {
-           "id": 122,
-           "is_true": false,
-           "text": "If (x < 0) a = b * 2; y = x; z = a - y;"
-         },
-         {
-           "id": 123,
-           "is_true": false,
-           "text": "{ if (x < 0) a = b * 2; y = x; z = a - y; }"
-         },
-         {
-           "id": 124,
-           "is_true": true,
-           "text": "If (x < 0) { a = b * 2; y = x; z = a - y; }"
-         },
-         {
-           "id": 125,
-           "is_true": false,
-           "text": "If{ (x < 0) a = b * 2; y = x; z = a - y ; }"
-         }
-       ],
-       "feedback_false": "The correct answer is the last statement: if (x < 0) { a = b * 2; y = x; z = a - y; }. This is because it correctly uses the if statement syntax, with the condition in parentheses followed by the code block enclosed in curly braces. The other options either have incorrect syntax or do not include the necessary curly braces to enclose all three instructions.",
-       "feedback_true": "Correct",
-       "id": 53,
-       "text": "Of the following, if statements, which one correctly executes three instructions if the condition is true?"
-     },
-     {
-       "answer_id": null,
-       "answers": [
-         {
-           "id": 126,
-           "is_true": true,
-           "text": "Debugging"
-         },
-         {
-           "id": 127,
-           "is_true": false,
-           "text": "Compiling"
-         }
-       ],
-       "feedback_false": "Debugging is the process of finding errors and fixing them within a program. It involves identifying and resolving issues such as logical errors, syntax errors, or runtime errors that prevent the program from working correctly. This process often requires the use of debugging tools and techniques, such as setting breakpoints, stepping through code, and analyzing variables, in order to locate and rectify the errors.",
-       "feedback_true": "Correct",
-       "id": 54,
-       "text": "_______ is the process of finding errors and fixing them within a program."
-     },
-     {
-       "answer_id": null,
-       "answers": [
-         {
-           "id": 128,
-           "is_true": false,
-           "text": "If-Else"
-         },
-         {
-           "id": 129,
-           "is_true": true,
-           "text": "For"
-         },
-         {
-           "id": 130,
-           "is_true": false,
-           "text": "While"
-         }
-       ],
-       "feedback_false": "The correct answer is 'For' because the 'For' loop is specifically designed to execute a section of code a certain number of times. In this case, Sal needs to execute the code ten times, and the 'For' loop allows for easily specifying the number of iterations. The other selection structures, such as 'If-Else', 'While', and 'If', do not have a built-in mechanism for repeating a section of code multiple times.",
-       "feedback_true": "Correct",
-       "id": 55,
-       "text": "Sal needs to execute a section of code ten times within a program. Compare the selection structures below and select which one meets the needs identified."
-     }
-   ],
-   "score": null,
-   "title": "Computer Programming",
-   "url": "https://www.youtube.com/watch?v=zOjov-2OZ0E&pp=ygULcHJvZ3JhbW1pbmc%3D"
- }] 
-  }
-  
+  "quizes": [
+    {
+      "created": "2020-09-09 09:26:39",
+      "description": "Here is an interesting quiz on computer programming",
+      "id": 29,
+      "modified": "2020-09-09 09:26:39",
+      "questions_answers": [
+        {
+          "answer_id": null,
+          "answers": [
+            {
+              "id": 122,
+              "is_true": false,
+              "text": "If (x < 0) a = b * 2; y = x; z = a - y;"
+            },
+            {
+              "id": 123,
+              "is_true": false,
+              "text": "{ if (x < 0) a = b * 2; y = x; z = a - y; }"
+            },
+            {
+              "id": 124,
+              "is_true": true,
+              "text": "If (x < 0) { a = b * 2; y = x; z = a - y; }"
+            },
+            {
+              "id": 125,
+              "is_true": false,
+              "text": "If{ (x < 0) a = b * 2; y = x; z = a - y ; }"
+            }
+          ],
+          "feedback_false": "The correct answer is the last statement: if (x < 0) { a = b * 2; y = x; z = a - y; }. This is because it correctly uses the if statement syntax, with the condition in parentheses followed by the code block enclosed in curly braces. The other options either have incorrect syntax or do not include the necessary curly braces to enclose all three instructions.",
+          "feedback_true": "Correct",
+          "id": 53,
+          "text": "Of the following, if statements, which one correctly executes three instructions if the condition is true?"
+        },
+        {
+          "answer_id": null,
+          "answers": [
+            {
+              "id": 126,
+              "is_true": true,
+              "text": "Debugging"
+            },
+            {
+              "id": 127,
+              "is_true": false,
+              "text": "Compiling"
+            }
+          ],
+          "feedback_false": "Debugging is the process of finding errors and fixing them within a program. It involves identifying and resolving issues such as logical errors, syntax errors, or runtime errors that prevent the program from working correctly. This process often requires the use of debugging tools and techniques, such as setting breakpoints, stepping through code, and analyzing variables, in order to locate and rectify the errors.",
+          "feedback_true": "Correct",
+          "id": 54,
+          "text": "_______ is the process of finding errors and fixing them within a program."
+        },
+        {
+          "answer_id": null,
+          "answers": [
+            {
+              "id": 128,
+              "is_true": false,
+              "text": "If-Else"
+            },
+            {
+              "id": 129,
+              "is_true": true,
+              "text": "For"
+            },
+            {
+              "id": 130,
+              "is_true": false,
+              "text": "While"
+            }
+          ],
+          "feedback_false": "The correct answer is 'For' because the 'For' loop is specifically designed to execute a section of code a certain number of times. In this case, Sal needs to execute the code ten times, and the 'For' loop allows for easily specifying the number of iterations. The other selection structures, such as 'If-Else', 'While', and 'If', do not have a built-in mechanism for repeating a section of code multiple times.",
+          "feedback_true": "Correct",
+          "id": 55,
+          "text": "Sal needs to execute a section of code ten times within a program. Compare the selection structures below and select which one meets the needs identified."
+        }
+      ],
+      "score": null,
+      "title": "Computer Programming",
+      "url": "https://www.youtube.com/watch?v=zOjov-2OZ0E&pp=ygULcHJvZ3JhbW1pbmc%3D"
+    },
+    {
+      "title": "New quiz",
+      "score": 10,
+      "url": "test url",
+      "description": "test descriptoim",
+      "quizes": [
+        {
+          "text": "question",
+          "answers": [
+            {
+              "text": "answer 1",
+              "is_true": false
+            },
+            {
+              "text": "answer 2 ",
+              "is_true": true
+            }
+          ]
+        }
+      ],
+      "id": 30
+    }
+  ]
+}
