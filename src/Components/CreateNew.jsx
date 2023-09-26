@@ -15,16 +15,34 @@ const CreateNew = ({ show, handleClose }) => {
   const [score, setScore] = useState("");
   const [url, setUrl] = useState("");
   const [description, setDescription] = useState("");
+  const [validated, setValidated] = useState(false);
 
   const queryClient = useQueryClient();
 
   const { mutateAsync, isLoading } = useMutation(createQuiz, {
     onMutate: () => {
-      queryClient.invalidateQueries("quizzes");
+      queryClient.invalidateQueries(["quizzes"]);
+    },
+    onSuccess: (data) => {
+      queryClient.setQueryData(["quizzes"], (prevData) => {
+        return {
+          ...prevData,
+          quizes: [...prevData.quizes, data],
+        };
+      });
     },
   });
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+
+    if (form.checkValidity() === false) {
+      e.stopPropagation();
+      setValidated(true);
+      return;
+    }
+
     const quizData = {
       title: title,
       score: parseInt(score),
@@ -172,7 +190,7 @@ const CreateNew = ({ show, handleClose }) => {
         <Modal.Title>Create new quiz</Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <Form>
+        <Form noValidate validated={validated} onSubmit={handleSubmit}>
           <Row className="mb-3">
             <Form.Group className="mb-3" as={Col} md={4} controlId="title">
               <Form.Label>Title</Form.Label>
@@ -181,7 +199,11 @@ const CreateNew = ({ show, handleClose }) => {
                 placeholder="Quiz title"
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
+                required
               />
+              <Form.Control.Feedback type="invalid">
+                Please enter a title.
+              </Form.Control.Feedback>
             </Form.Group>
             <Form.Group className="mb-3" as={Col} md={4} controlId="score">
               <Form.Label>Score</Form.Label>
@@ -190,7 +212,11 @@ const CreateNew = ({ show, handleClose }) => {
                 placeholder="Quiz score"
                 value={score}
                 onChange={(e) => setScore(e.target.value)}
+                required
               />
+              <Form.Control.Feedback type="invalid">
+                Please enter a score.
+              </Form.Control.Feedback>
             </Form.Group>
             <Form.Group as={Col} md={4} controlId="url">
               <Form.Label>URL</Form.Label>
@@ -199,7 +225,11 @@ const CreateNew = ({ show, handleClose }) => {
                 placeholder="Video URL"
                 value={url}
                 onChange={(e) => setUrl(e.target.value)}
+                required
               />
+              <Form.Control.Feedback type="invalid">
+                Please enter a URL.
+              </Form.Control.Feedback>
             </Form.Group>
           </Row>
           <Row className="mb-4">
@@ -223,21 +253,16 @@ const CreateNew = ({ show, handleClose }) => {
               </Button>
             </Col>
           </Row>
+          <Row className="mt-5 justify-content-end">
+            <Col md={2}>
+              {" "}
+              <Button type="submit" variant="dark" disabled={isLoading}>
+                {isLoading ? "Creating..." : "Save Quiz"}
+              </Button>
+            </Col>
+          </Row>
         </Form>
       </Modal.Body>
-      <Modal.Footer>
-        <Button variant="outline-dark" onClick={handleClose}>
-          Cancel
-        </Button>
-        <Button
-          type="submit"
-          variant="dark"
-          onClick={handleSubmit}
-          disabled={isLoading}
-        >
-          {isLoading ? "Creating..." : "Save"}
-        </Button>
-      </Modal.Footer>
     </Modal>
   );
 };

@@ -3,9 +3,7 @@ import { Container } from "react-bootstrap";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
-import Alert from "react-bootstrap/Alert";
 import Button from "react-bootstrap/Button";
-import Spinner from "react-bootstrap/Spinner";
 import CreateNew from "../Components/CreateNew";
 import { useQuery } from "@tanstack/react-query";
 import { getQuizes } from "../Endpoints/api";
@@ -27,17 +25,8 @@ const Home = () => {
     data: quizzes,
     isLoading,
     isError,
-    error,
     isFetched,
   } = useQuery(["quizzes"], getQuizes);
-
-  if (isLoading) {
-    return (
-      <div className="mt-5 d-flex justify-content-center">
-        <Spinner animation="grow" />
-      </div>
-    );
-  }
 
   return (
     <Container className="mt-5">
